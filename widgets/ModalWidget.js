@@ -160,6 +160,7 @@ module.exports = React.createClass({
       return React.cloneElement(child, {
         formStyles: this.props.formStyles,
         openModal: this.props.openModal,
+        closeModal: this.props.closeModal,
         formName: this.props.formName,
         navigator: this.props.navigator,
         onFocus: this.props.onFocus,
@@ -194,6 +195,9 @@ module.exports = React.createClass({
     }
 
     this.props.onClose && this.props.onClose();
+    if (this.props.closeModal !== null) {
+      this.props.closeModal();
+    }
   },
 
   refreshDisplayableValue() {
